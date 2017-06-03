@@ -6,6 +6,16 @@ import matplotlib.pyplot as plt
 # Define metrics to be used by Keras fit()
 import keras.backend as K
 
+def unpatch(y, num_patches_wide, num_patches_high):
+    N, W, H = y.shape
+    # N must be equal to num_patches_wide * num_patches_high
+    assert(N == num_patches_wide * num_patches_high)
+    y = y.transpose(1, 0, 2)
+    y = y.reshape(W, num_patches_wide, num_patches_high, H)
+    y = y.transpose(1, 0, 2, 3)
+    return y.reshape(num_patches_wide * W, num_patches_high * H)
+    
+
 def precision(y_true, y_pred):
     """Precision metric.
 
