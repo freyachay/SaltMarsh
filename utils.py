@@ -3,6 +3,7 @@ import tensorflow as tf
 
 import matplotlib.pyplot as plt
 
+# Test comment
 # Define metrics to be used by Keras fit()
 import keras.backend as K
 
