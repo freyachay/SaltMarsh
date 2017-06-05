@@ -7,10 +7,8 @@ import matplotlib.pyplot as plt
 # Define metrics to be used by Keras fit()
 import keras.backend as K
 
-<<<<<<< HEAD
+
 # Turns an array of patches (N, W, H) into a single tiled image (WW, HH)
-=======
->>>>>>> 696a29f40a1e1677fd4bd77eceb87491c8e266b6
 def unpatch(y, num_patches_wide, num_patches_high):
     N, W, H = y.shape
     # N must be equal to num_patches_wide * num_patches_high
@@ -19,7 +17,6 @@ def unpatch(y, num_patches_wide, num_patches_high):
     y = y.reshape(W, num_patches_wide, num_patches_high, H)
     y = y.transpose(1, 0, 2, 3)
     return y.reshape(num_patches_wide * W, num_patches_high * H)
-<<<<<<< HEAD
 
 # Credit to nshaud 
 # (https://github.com/nshaud/DeepNetsForEO/blob/master/notebooks/Image%20extraction.ipynb) for general outline of making patches.
@@ -41,9 +38,7 @@ def sliding_window(image, patch_size, step_size):
             if (new_patch.shape[0], new_patch.shape[1]) == (patch_size, patch_size):
                 patches.append(new_patch)
     return patches
-=======
-    
->>>>>>> 696a29f40a1e1677fd4bd77eceb87491c8e266b6
+
 
 def precision(y_true, y_pred):
     """Precision metric.
